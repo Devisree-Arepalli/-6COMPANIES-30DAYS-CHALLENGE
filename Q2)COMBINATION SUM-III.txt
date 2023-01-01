@@ -1,0 +1,24 @@
+Q2)COMBINATION SUM-III
+class Solution {
+   private void sol(List<List<Integer>> ans,List<Integer> v,int id,int n,int k){
+        if(k==v.size()&&n==0)
+        {
+           List<Integer> li = new ArrayList<Integer>(v);
+		ans.add(li);
+            return;
+        }
+    for(int i=id;i<10;i++)
+    {
+        v.add(i);
+        sol(ans,v,i+1,n-i,k);
+        v.remove(v.size()-1);
+    }
+    }
+    public List<List<Integer>> combinationSum3(int k, int n) {
+        List<List<Integer>> ans=new ArrayList<>();
+        List<Integer>v=new ArrayList<>();
+        sol(ans,v,1,n,k);
+        return ans;
+        
+    }
+}
